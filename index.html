@@ -4,7 +4,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Bellini - Lab2</title>
+  <title>Bellini - Creative Project 3</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -31,43 +31,47 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
-      <h1>PokeAPI Demo</h1>
     <div class="row">
-      <div class="one-half column " style="margin-top: 5%">
-
+      <div id="app">
+        <div v-if="loading">
+          <p>Loading...</p>
+        </div>
+        <div v-else>
+          <h1>PokeAPI Demo</h1>
+          <h2><i>Now with Vue!</i></h2>
+          <div class="one-half column " style="margin-top: 5%">
+            <form>
+              <font color="white">
+                <label>Enter a Pokemon Name or Number!</label>
+              </font>
+              <input id="pokeInput" type="text"></input><br />
+              <button v-on:click="pokeSubmit">Submit</button>
+            </form>
+            <h4>Github Info</h4>
+            <p>Here is a link to David Bellini's code: 
+              <a href="https://github.com/BYU-CS-260-Winter-2019/lab-2-dasterix.git">Link to GitHub</a>.</p>
       
-        <form>
-          <font color="white">
-            <label>Enter a Pokemon Name or Number!</label>
-          </font>
-          <input id="pokeInput" type="text"></input><br />
-          <input id="pokeSubmit" type="submit" value="Submit"></input>
-        </form>
-      
-      
-        <h4>Github Info</h4>
-        <p>Here is a link to David Bellini's code: 
-          <a href="https://github.com/BYU-CS-260-Winter-2019/lab-2-dasterix.git">Link to GitHub</a>.</p>
-        
-      </div> 
-      <div class="one-half column " style="margin-top: 5%">
-          <div id="pokeResults" class="white">       
-            </div>
-      </div>
-      
-    </div>
-
-    <!-- <button id="dropButton" onclick="hide()">Toggle Forecast</button>
-    <div id="fDropDowns">
-      <div class="row">
-          <div id="forecastResults">
+          </div> 
+          <div class="one-half column " style="margin-top: 5%">
+              <div class="white">
+                <h2>{{current.name}}</h2>
+                <img v-bind:src="current.sprites.front_default">
+                <img v-bind:src="current.sprites.back_default">
+                <!-- <h5>Type: {{pokeType}} </h5> -->
+                <h5>Height: {{current.height}} m   Weight: {{current.weight}} lbs</h5>
+                <star-rating @rating-selected ="setRating" v-bind:increment=0.5></star-rating >
+                  <p><i>Average Rating: {{avgRating}}</i></p>
+              </div>    
           </div>
+        </div>
       </div>
-    </div> -->
+    </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous">
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue-star-rating/dist/star-rating.min.js"></script>
   <script text="type/javascript" src="script.js">
   </script>
 <!-- End Document
