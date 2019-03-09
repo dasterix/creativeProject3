@@ -1,11 +1,3 @@
-/* let d = document.getElementById("weatherSubmit");
-d.addEventListener();
-
-const click = function(event){
-
-}
- */
-
 Vue.component('star-rating', VueStarRating.default);
 
 function capitalizeFirstLetter(string) {
@@ -45,12 +37,12 @@ function capitalizeFirstLetter(string) {
      },
    
     created() {
-      this.getPokemon();
+      this.getPokemon(1);
     },
 
     methods: {
-      getPokemon(){
-        axios.get('https://pokeapi.co/api/v2/pokemon/' + this.addedName + '/')
+      getPokemon(pokemon){
+        axios.get('https://pokeapi.co/api/v2/pokemon/' + pokemon + '/')
         .then(response => {
           this.loading = true;
           this.current = response.data;
@@ -74,14 +66,12 @@ function capitalizeFirstLetter(string) {
       },
 
       pokeSubmit(){
-        console.log("WE ENTERED THE LISTENER")
         let pokeName = document.getElementById("pokeInput").value;
         if (pokeName === "")
           return;
         this.addedName = pokeName;
-        Vue.set(this.addedName);
-        console.log(pokeName); 
-        getPokemon();
+        console.log(this.addedName); 
+        this.getPokemon(pokeName);
       },
 
       setRating(rating){

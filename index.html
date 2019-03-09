@@ -31,12 +31,8 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
-    <div class="row">
-      <div id="app">
-        <div v-if="loading">
-          <p>Loading...</p>
-        </div>
-        <div v-else>
+    <div id="app">
+      
           <h1>PokeAPI Demo</h1>
           <h2><i>Now with Vue!</i></h2>
           <div class="one-half column " style="margin-top: 5%">
@@ -45,7 +41,7 @@
                 <label>Enter a Pokemon Name or Number!</label>
               </font>
               <input id="pokeInput" type="text"></input><br />
-              <button v-on:click="pokeSubmit">Submit</button>
+              <button v-on:click="pokeSubmit" type="button">Submit</button>
             </form>
             <h4>Github Info</h4>
             <p>Here is a link to David Bellini's code: 
@@ -62,11 +58,10 @@
                 <star-rating @rating-selected ="setRating" v-bind:increment=0.5></star-rating >
                   <p><i>Average Rating: {{avgRating}}</i></p>
               </div>    
-          </div>
-        </div>
+            </div>
       </div>
     </div>
-  </div>
+  
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
