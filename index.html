@@ -45,7 +45,7 @@
             </form>
             <h4>Github Info</h4>
             <p>Here is a link to David Bellini's code: 
-              <a href="https://github.com/BYU-CS-260-Winter-2019/lab-2-dasterix.git">Link to GitHub</a>.</p>
+              <a href="https://github.com/dasterix/creativeProject3">Link to GitHub</a>.</p>
       
           </div> 
           <div class="one-half column " style="margin-top: 5%">
@@ -55,6 +55,7 @@
                 <img v-bind:src="current.sprites.back_default">
                 <!-- <h5>Type: {{pokeType}} </h5> -->
                 <h5>Height: {{current.height}} m   Weight: {{current.weight}} lbs</h5>
+                <h3>Rate this dumb website!</h3>
                 <star-rating @rating-selected ="setRating" v-bind:increment=0.5></star-rating >
                   <p><i>Average Rating: {{avgRating}}</i></p>
               </div>    
